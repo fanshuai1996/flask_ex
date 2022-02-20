@@ -1,0 +1,26 @@
+的
+了
+我
+你
+一定
+吧
+也
+后
+会
+还
+都
+和
+
+
+#进入分词页面
+@app.route('/fenci')
+def fenci():
+    fenci_dict={'':''}
+    return render_template('index.html',data=fenci_dict)
+
+
+
+
+
+
+

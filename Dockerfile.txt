@@ -1,0 +1,18 @@
+#基于的基础镜像
+FROM python:3.8.9
+#维护者信息
+MAINTAINER congcong
+#代码添加到code文件夹
+
+ADD ./chuangdi  /code
+#设置code文件夹是工作目录
+WORKDIR  /code
+# 安装支持
+RUN pip3 install --default-timeout=1000 -r requirement.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
+
+CMD ["python3", "/code/index.py"]
+~
+
+
+
+

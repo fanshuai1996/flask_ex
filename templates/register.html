@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <!-- 必须的 meta 标签 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+    <title>注册</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row" style="margin-top: 100px;">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm" style="border:tomato 1px solid; width: 400px; height: 400px;">
+          <form style="margin-top: 30px;">
+            <div class="form-group">
+              <label for="username">用户名</label>
+              <input type="text" class="form-control" id="username"" name="username">
+            </div>
+            <div class="form-group">
+              <label for="userpwd">设置密码</label>
+              <input type="password" class="form-control" id="userpwd" name="userpwd">
+            </div>
+            <div class="form-group">
+                <label for="rePassword">确认密码</label>
+                <input type="password" class="form-control" id="rePassword" name="rePassword">
+                <small id='cuowutishi'></small>
+              </div>
+            <button type="button" class="btn btn-primary" style="margin-left: 130px;margin-top: 20px;" id='tijiao'>提交</button>
+            <a href="/login" style="position: relative;margin-left:20px;top: 10px;">返回</a>
+          </form>
+        </div>
+        <script>
+          //使用ajax来传递
+          $(function(){
+            $('#tijiao').click(function(event){
+              var username=document.getElementById('username').value;
+              var userpwd=document.getElementById('userpwd').value;
+              var rePassword=document.getElementById('rePassword').value;
+              if(rePassword==userpwd){
+                //关闭表单里按钮默认行为
+                user_dict={
+                  'username':username,
+                  'userpwd':userpwd,
+                  'rePassword':rePassword
+                }
+                event.preventDefault();
+                $.post({
+                  'url':'/register',
+                  'data':user_dict,
+                  'success':function(data){
+                    if(data['code']==200){
+                      alert(data['msg'])
+                    }else{
+                      alert(data['msg'])
+                    }
+                    console.log(data);
+                  }
+                })
+              }else{
+                document.getElementById('cuowutishi').innerHTML='密码不一致,请重新输入';
+              } 
+            })
+          })
+        </script>
+        <div class="col-sm">
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

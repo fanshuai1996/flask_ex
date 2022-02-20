@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
+    <script src="/templates/js/jquery.slim.min.js"></script>
+    <script src="/templates/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body,p{margin: 0;}
+      h2{margin: 0;font-size:100%;}
+      ul{margin: 0;padding: 0;list-style: none;}
+      a{text-decoration: none;color:inherit;}
+      .box{
+            width: 200px;
+<!--            border: 1px solid #999;-->
+            overflow: hidden;}
+      .nav{
+            margin-left: -1px;
+            font: 14px "微软雅黑";
+            overflow: hidden;
+            background-color: #f1f1f1;}
+      .navI{
+            float: left;
+            width: 33.333%;
+            box-sizing: border-box;
+            position:relative;}
+      .navI-tit{
+            position:absolute;
+            top:0;left:0;right:0;
+            box-sizing: border-box;
+            line-height: 40px;
+            height: 40px;
+            text-align: center;
+            cursor: pointer;
+<!--            border-left: 1px solid #cecece;-->
+<!--            border-bottom: 1px solid #cecece;-->
+       }
+      .navI-txt{
+            width:1700px;
+            margin-top: 40px;
+            text-indent:2em;
+            line-height: 2;
+            background:#fff;
+      }
+      .ml1{margin-left: -100%;}
+      .ml2{margin-left: -200%;}
+      .navI_active{z-index:1;}
+      /*重点代码*/
+      .navI-txt:target{position:relative;z-index:1;}
+      .navI-txt:target ~ .navI-tit{background:#fff;border-bottom:none;}
+    </style>
+    <title>jeiba分词页面</title>
+  </head>
+  <body>
+      <div class="box" style="margin-left:100px;">
+        <div>
+            <a class="navbar-brand" href="/" style="position:relative;float: left;">
+              <img src="{{ url_for('static', filename='img/1.jpg') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+              Bootstrap
+            </a>
+        </div>
+        <div class="row">
+              <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="background:lightblue">
+                <ul class="nav">
+                  <li class="navI navI_active">
+                    <a class="navI-tit" href="#kc">分词</a>
+                    <div class="navI-txt" id="kc">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-sm">
+                                One of three columns
+                              </div>
+                              <div class="col-sm">
+                                One of three columns
+                              </div>
+                              <div class="col-sm">
+                                One of three columns
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                  </li>
+                  <li class="navI">
+                    <a class="navI-tit" href="#xx">学习计划</a>
+                    <p class="navI-txt ml1" id="xx">计划</p>
+                  </li>
+                  <li class="navI">
+                    <a class="navI-tit" href="#jn">技能图谱</a>
+                    <p class="navI-txt ml2" id="jn">记录</p>
+                  </li>
+                </ul>
+              </nav>
+          </div>
+        </div>
+  </body>
+</html>
